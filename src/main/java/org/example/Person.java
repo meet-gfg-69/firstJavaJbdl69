@@ -5,8 +5,8 @@ public class Person {
 
     private static int a=10;
     private String name;
-   private int age;
-   private boolean isAdult;
+    public int age;
+    private boolean isAdult;
 
     public Person(String name, int age) {
         a++;
@@ -40,7 +40,12 @@ public class Person {
     }
 
     public void setAge(int age) {
-        this.age = age;
+        if(age > 0 && age < 100) {
+            this.age = age;
+        }
+        else {
+            throw  new IllegalArgumentException();
+        }
     }
 
     public boolean isAdult() {
@@ -62,7 +67,81 @@ public class Person {
      * 2. Data hiding
      *
      * 3. Inheritance
+     *
+     *  Interface to class
+     *      Car
+     *      {
+     *          // wheels
+     *          // engine
+     *          // body
+     *
+     *          moveForward();
+     *          moveBackward();
+     *          stop();
+     *          start();
+     *      }
+     *
+     *      class SampleCar implements Car
+     *      {
+     *
+     *      }
+     *
+     *      interface Hyundai extends Car{
+     *
+     *          openAirBag();
+     *          closeAirBag();
+     *
+     *      }
+     *
+     *      class I10 implements HyundaiCar{
+     *          void start(){
+     *                 //key stroke
+     *      *      }
+     *      }
+     *      class I10Plus extends I10 {
+
+            void start(){
+                //button press
+     *      }
+     }
+     *
+     *
+     * Class to Class
+     *
+     *
+     *
+     *
+     *
+     *
+     *
      * 4. Polymorphism
+     *
+     *      Overloading/Compile time
+     *          rules
+     *          1.Method name should be same
+     *          2.Types of parameters should be different
+     *          3.Number of parameters should be different
+     *          4.Order of parameters should be different
+     *          5. -> Return type does not matter here
+     *
+     *      Overriding/Run time
+     *
+     *
+     * Calculator
+     * {
+     *     addInteger(int a, int b)
+     *     addDouble(double a, double b);
+     *     addFloat(float a,float b);
+     *     addString (String a , String b);
+     *
+     *     add(int a, int b)
+     *    add(double a, double b);
+     *     add(float a,float b);
+     *      add(String a , String b);
+     *
+     *
+     *
+     * }
      *
      *
      *

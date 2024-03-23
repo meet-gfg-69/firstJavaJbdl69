@@ -8,10 +8,12 @@ public class Main {
          Person p = new Person("john",20);
          System.out.println(p.isAdult());
          p.setAge(10);
+         p.age=-100;
          System.out.println(p.isAdult());
 
 
          BankAccount bankAccount=new BankAccount("Max");
+
          bankAccount.deposit(10000.00);
          System.out.println(bankAccount.getBalance());
          bankAccount.withdraw(5000.00);
@@ -103,6 +105,8 @@ public class Main {
  *
  * While all non-static member can access static because it belongs to their class and for sure tend to exist.
  * */
+
+
 
 
 
