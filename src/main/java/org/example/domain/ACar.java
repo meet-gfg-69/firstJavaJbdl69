@@ -1,4 +1,4 @@
-package org.example.inheritance;
+package org.example.domain;
 
 public class ACar implements CompanyCar , CompanyCarTwo{
 
@@ -37,7 +37,7 @@ public class ACar implements CompanyCar , CompanyCarTwo{
 
     @Override
     public void start() {
-        System.out.println("logic for start with key stroke");
+        System.out.println("logic for start with key stroke in ACar");
 
     }
 }

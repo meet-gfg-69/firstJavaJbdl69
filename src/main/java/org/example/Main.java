@@ -1,5 +1,8 @@
 package org.example;
 
+import org.example.domain.BankAccount;
+import org.example.domain.Person;
+
 public class Main {
      public static void main(String[] args) {
         System.out.println("Hello world!");

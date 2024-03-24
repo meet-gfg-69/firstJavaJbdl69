@@ -1,4 +1,4 @@
-package org.example.inheritance;
+package org.example.domain;
 
 public class ACarPlus extends ACar{
 
@@ -7,7 +7,7 @@ public class ACarPlus extends ACar{
     }
    @Override
     public void start(){
-        System.out.println("logic for start with button");
+        System.out.println("logic for start with button in AplusCar");
 
     }
 }

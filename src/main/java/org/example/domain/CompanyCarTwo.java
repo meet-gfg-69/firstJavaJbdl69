@@ -1,4 +1,4 @@
-package org.example.inheritance;
+package org.example.domain;
 
 public interface CompanyCarTwo {
 

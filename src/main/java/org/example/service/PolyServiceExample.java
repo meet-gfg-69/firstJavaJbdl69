@@ -1,8 +1,6 @@
-package org.example.poly;
+package org.example.service;
 
-import java.sql.SQLOutput;
-
-public class Calculator {
+public class PolyServiceExample {
 
 
     public int add(int a, int b){

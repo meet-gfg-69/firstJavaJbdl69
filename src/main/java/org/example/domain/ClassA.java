@@ -1,4 +1,4 @@
-package org.example.inheritance;
+package org.example.domain;
 
 public class ClassA {
     int a;

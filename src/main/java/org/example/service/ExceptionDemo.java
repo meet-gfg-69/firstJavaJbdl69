@@ -1,26 +1,61 @@
-package org.example;
+package org.example.service;
+
+import org.example.exception.MyCustomException;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
 public class ExceptionDemo {
 
-    public static void main(String[] args) {
-        int a = sample();
-        System.out.println(a);
+    public static void main(String[] args)  {
+        try {
+
+
+            int a = sample(6, 0);
+            System.out.println(a);
+        } catch (MyCustomException e) {
+
+            e.printStackTrace();
+        }
+
+        System.out.println("application end here");
+        sample2("test.txt");
+        sample2("test2.txt");
     }
 
 
-    public static int sample() {
-        try {
-            int a = 10;
-            int b = a/0;
-            return a;
-        }catch (Exception ex){
-            ex.printStackTrace();
-            ex.getCause();
-
-        }finally {
-            System.out.println("I am getting called here");
+    public static int sample(int a , int b) throws MyCustomException {
+        if(b == 0){
+            throw new ArithmeticException();
         }
-            return 5;
+        try{
+            Integer k = null;
+            k=k+10;
+            int[] b1 = new int[10];
+            System.out.println(b1[12]);
+            return a/b;
+        }
+        catch(ArithmeticException e){
+            System.out.println("exception while dividing");
+        }catch(NullPointerException ex){
+            System.out.println("exception while checking");
+        } catch (Exception ex){
+            System.out.println(ex.getClass());
+            System.out.println("the last block");
+        }
+
+        return a;
+    }
+
+    public static void sample2(String fileName) throws MyCustomException {
+        System.out.println("hello");
+        File f=new File(fileName);
+        //BufferedReader bf=new BufferedReader(new FileReader(f));
+
+
+
     }
 }
 
