@@ -126,6 +126,59 @@ public class ThreadServiceExample {
     }
 
 
+    /**
+     * 1. Concurrent
+     * 2. parallel
+     * 3. Async
+     *
+     *
+     *
+     * coding + music - parallel
+     * coding + replying message on mobile - concurrent
+     * code is compiling & went to collect a parcel -async
+     * */
+
+    /**
+     *
+     *    // Thread implements the runnable so it does not return anything, It fire and forget way.
+     *
+     *         /*The Runnable interface is a functional interface and has a single run() method which doesn't accept any parameters and does not return any values.
+     *          * Since the method signature does not have the “throws” clause specified, there is no way to propagate further checked exceptions.
+     *          *
+     *          * The Callable interface is a generic interface containing a single call() method – which returns a generic value V:
+     *          * Callable's call() method contains “throws Exception” clause so we can easily propagate checked exceptions further:
+     *
+     * Future are used for getting the output after the thread finishes the computation.
+     * Ex:
+     *  When any service is booked. we get a token(Future here in java) and we wait for our token number to come and get
+     *  the service. Similar way Future ( intro in 1.5) waits and blocks the calling thread to get output when .get() is called
+     *
+     *  to avoid blocking in Java 1.8 Completable Future were introduced which implements Future and CompletionStage.
+     *  It is a non-blocking call used with function which accepts consumer and supplier which needs to be processed after thread finishes
+     *
+     *  We use executorServices to manage thread rather than creating a custom new threads.
+     *  ExecutorService is framework inbuilt to handle and limit the thread.
+     *         * types of executors
+     *             Single Thread Executor : A thread pool with only one thread. So all the submitted tasks will be executed sequentially. Method : Executors.newSingleThreadExecutor()
+     *
+     *             Cached Thread Pool : A thread pool that creates as many threads it needs to execute the task in parrallel. The old available threads will be reused for the new tasks. If a thread is not used during 60 seconds, it will be terminated and removed from the pool. Method : Executors.newCachedThreadPool()
+     *
+     *             Fixed Thread Pool : A thread pool with a fixed number of threads. If a thread is not available for the task, the task is put in queue waiting for an other task to ends. Method : Executors.newFixedThreadPool()
+     *
+     *             Scheduled Thread Pool : A thread pool made to schedule future task. Method : Executors.newScheduledThreadPool()
+     *
+     *             Single Thread Scheduled Pool : A thread pool with only one thread to schedule future task. Method : Executors.newSingleThreadScheduledExecutor()
+     *
+     *
+     *
+     *  Future cannot handle the checked exception while CompletableFuture are enhanced with handling the Checked exceptions.
+     *
+     * */
+
+
+
+
+
 
 
 

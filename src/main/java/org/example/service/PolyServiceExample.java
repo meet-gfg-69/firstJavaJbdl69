@@ -2,6 +2,15 @@ package org.example.service;
 
 public class PolyServiceExample {
 
+    /**
+     * Polymoric example
+     * 1. overloading
+     *  a. param type should be different
+     *  b. return type does not count for overloading
+     *  c. order the parameters also differs
+     *  d. number of parameters
+     * */
+
 
     public int add(int a, int b){
         System.out.println("I am 1st method");
@@ -33,6 +42,8 @@ public class PolyServiceExample {
       public String add(double b, int a){
             return null;
       }
+
+
 
 
 

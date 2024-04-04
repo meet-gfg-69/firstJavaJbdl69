@@ -5,9 +5,12 @@ import org.example.domain.Trade;
 import org.example.exception.MyCustomException;
 
 import java.util.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ForkJoinPool;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class StreamExample {
@@ -21,7 +24,7 @@ public class StreamExample {
      *
      * */
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
 
 
 //        List<Integer> numList=List.of(1,2,3,4,5,6,7,8,9,10);
@@ -195,6 +198,29 @@ public class StreamExample {
               Person p = optionalPerson.orElse(new Person("john", 20));
 
 
+              List<Double> resultParallel=trades.parallelStream().map(Trade::getResult).sorted().collect(Collectors.toList());
+
+              Stream<Trade> abc=trades.stream();
+              Stream<Trade> pqr=trades.parallelStream();
+
+              List<Integer> intList= IntStream.rangeClosed(0,5).boxed().collect(Collectors.toList());
+              Long start=System.currentTimeMillis();
+
+              //intList.parallelStream().map(integer -> justWait(integer)).collect(Collectors.toList()).forEach(System.out::println);
+
+              System.out.println(trades.stream().map(Trade::getResult).reduce(0.0, (t1,t6) -> t1+t6));
+
+
+              ForkJoinPool forkJoinPool=new ForkJoinPool(10);
+              forkJoinPool.submit(() ->{
+                  //  intList.parallelStream().map(integer -> justWait(integer)).collect(Collectors.toList()).forEach(System.out::println);
+                  System.out.println(trades.parallelStream().map(Trade::getResult).reduce(0.0, (t1,t6) -> t1+t6));
+              }).get();
+              Long end=System.currentTimeMillis();
+              System.out.println("the time taken:"+(end-start));
+
+
+
           }
     }
 
@@ -229,4 +255,22 @@ public class StreamExample {
      * 2. Map -> Covert/map the item into the another data type or object that is required.
      * 3. Flatmap -> opens a small stream for every item in the main stream and converts it into a new stream.
      * */
+
+    /**
+     * type of opeartion on chunks
+     * 1.pure -> pure it is multi in and multi out. operations are isolated
+     *
+     * 2. impure -> impure is multi in and single out. operations are not isolated
+     *
+     *
+     * Ways to resolve race conditions
+     * 1. make the block of modifying code as synronized.
+     * 2. mark the member as volatile
+     * 3. use atomic data type
+     *  volatile  int a=0;
+     *
+     *  static  AtomicInteger atomicA=new AtomicInteger(0);
+     * */
+
+
 }
